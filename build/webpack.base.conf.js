@@ -53,6 +53,11 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.html$/,
+        loader: 'html-loader',
+        include: [resolve('src'), resolve('test')]
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         query: {
