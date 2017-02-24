@@ -3,6 +3,32 @@
 <script>
   export default {
     name: 'message',
+
+    data() {
+      return {
+        messages: null,
+      };
+    },
+
+    created() {
+      this.fetchMessages();
+    },
+
+    methods: {
+      fetchMessages() {
+        const apiURL = 'http://microblog-api.herokuapp.com/api/messages';
+        const xhr = new XMLHttpRequest();
+        const self = this;
+
+        xhr.open('GET', apiURL);
+
+        xhr.onload = function () {
+          self.messages = JSON.parse(xhr.responseText);
+        };
+
+        xhr.send();
+      },
+    },
   };
 </script>
 
