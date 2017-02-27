@@ -22,7 +22,7 @@
 
         xhr.open('GET', apiURL);
 
-        xhr.onload = function () {
+        xhr.onload = () => {
           self.messages = JSON.parse(xhr.responseText);
         };
 
