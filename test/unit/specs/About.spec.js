@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import Messages from 'src/components/About';
+import About from 'src/components/About';
 
 describe('About components', () => {
-  const Constructor = Vue.extend(Messages);
+  const Constructor = Vue.extend(About);
   const vm = new Constructor().$mount();
 
   it('should render correct contents', () => {
