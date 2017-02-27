@@ -1,6 +1,6 @@
 <div class="messages">
   <div class="message-input">
-    <input type="text" placeholder="Quoi de neuf ?" autofocus="" class="message-input__content">
+    <input v-model="newMessage" type="text" placeholder="Quoi de neuf ?" autofocus="" class="message-input__content" @keyup.enter="postNewMessages">
   </div>
 
   <div class="message-list">

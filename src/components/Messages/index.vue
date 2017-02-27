@@ -7,26 +7,47 @@
     data() {
       return {
         messages: null,
+        newMessage: '',
+        apiURL: 'http://microblog-api.herokuapp.com/api/messages',
       };
     },
 
     created() {
-      this.fetchMessages();
+      this.getAllMessages();
     },
 
     methods: {
-      fetchMessages() {
-        const apiURL = 'http://microblog-api.herokuapp.com/api/messages';
+      getAllMessages() {
         const xhr = new XMLHttpRequest();
-        const self = this;
 
-        xhr.open('GET', apiURL);
+        xhr.open('GET', this.apiURL);
 
         xhr.onload = () => {
-          self.messages = JSON.parse(xhr.responseText);
+          this.messages = JSON.parse(xhr.responseText).reverse();
         };
 
         xhr.send();
+      },
+      postNewMessages() {
+        const newValue = this.newMessage && this.newMessage.trim();
+//
+        if (newValue) {
+          const xhr = new XMLHttpRequest();
+          const params = JSON.stringify({
+            author: 'default-vuejs2',
+            content: newValue,
+          });
+
+          xhr.open('POST', this.apiURL);
+          xhr.setRequestHeader('Content-type', 'application/json');
+
+          xhr.onreadystatechange = () => {
+            this.getAllMessages();
+            this.newMessage = '';
+          };
+
+          xhr.send(params);
+        }
       },
     },
   };

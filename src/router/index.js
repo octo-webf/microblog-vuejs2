@@ -7,6 +7,8 @@ import page404 from 'components/page404';
 
 Vue.use(Router);
 
+// TODO ajouter des tests sur l'existance des routes
+
 export default new Router({
   routes: [
     {
