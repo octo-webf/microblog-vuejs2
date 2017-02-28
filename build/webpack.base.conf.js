@@ -54,7 +54,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html-loader',
+        loader: 'url-loader',
         include: [resolve('src'), resolve('test')]
       },
       {

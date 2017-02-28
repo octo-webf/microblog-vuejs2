@@ -7,6 +7,6 @@ describe('page404 components', () => {
 
   it('should render correct contents', () => {
     expect(vm.$el.querySelector('#page404 .warning-message').textContent)
-      .to.equal('This page does not exist.');
+      .to.equal('Page not found');
   });
 });
