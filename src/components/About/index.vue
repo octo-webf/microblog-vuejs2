@@ -4,6 +4,15 @@
 <script>
   export default {
     name: 'about',
+
+    locales: {
+      fr: {
+        message: 'Nous sommes partout ...',
+      },
+      en: {
+        message: 'We are everywhere ...',
+      },
+    },
   };
 </script>
 

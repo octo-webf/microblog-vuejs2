@@ -4,6 +4,19 @@
 <script>
   export default {
     name: 'page_not_found',
+
+    locales: {
+      fr: {
+        message: {
+          notFound: 'Page non trouvée',
+        },
+      },
+      en: {
+        message: {
+          notFound: 'Page not found',
+        },
+      },
+    },
   };
 </script>
 

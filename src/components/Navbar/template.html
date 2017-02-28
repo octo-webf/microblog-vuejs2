@@ -9,13 +9,13 @@
         <li class="navigation-bar__li">
           <router-link to="/" class="navigation-bar__link">
             <i aria-hidden="true"  class="navigation-bar__link-icon fa fa-home"></i>
-            <span class="navigation-bar__link-label">Accueil</span>
+            <span class="navigation-bar__link-label">{{ $t('buttons.home') }}</span>
           </router-link>
         </li>
         <li class="navigation-bar__li">
           <router-link to="/about" class="navigation-bar__link">
             <i aria-hidden="true"  class="navigation-bar__link-icon fa fa-info-circle"></i>
-            <span class="navigation-bar__link-label">À propos</span>
+            <span class="navigation-bar__link-label">{{ $t('buttons.about') }}</span>
           </router-link>
         </li>
       </ul>

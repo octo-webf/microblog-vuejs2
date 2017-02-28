@@ -3,6 +3,21 @@
 <script>
   export default {
     name: 'navbar',
+
+    locales: {
+      fr: {
+        buttons: {
+          home: 'Accueil',
+          about: 'À propos',
+        },
+      },
+      en: {
+        buttons: {
+          home: 'Home',
+          about: 'About',
+        },
+      },
+    },
   };
 </script>
 

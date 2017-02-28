@@ -24,7 +24,7 @@
       },
       postNewMessages() {
         const newValue = this.newMessage && this.newMessage.trim();
-//
+
         if (newValue) {
           const params = {
             author: 'default-vuejs2',
@@ -36,6 +36,19 @@
             this.newMessage = '';
           });
         }
+      },
+    },
+
+    locales: {
+      fr: {
+        message: {
+          whatsNew: 'Quoi de neuf ?',
+        },
+      },
+      en: {
+        message: {
+          whatsNew: 'What\'s new ?',
+        },
       },
     },
   };
