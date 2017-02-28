@@ -18,35 +18,23 @@
 
     methods: {
       getAllMessages() {
-        const xhr = new XMLHttpRequest();
-
-        xhr.open('GET', this.apiURL);
-
-        xhr.onload = () => {
-          this.messages = JSON.parse(xhr.responseText).reverse();
-        };
-
-        xhr.send();
+        this.$http.get(this.apiURL).then((response) => {
+          this.messages = response.body.reverse();
+        });
       },
       postNewMessages() {
         const newValue = this.newMessage && this.newMessage.trim();
 //
         if (newValue) {
-          const xhr = new XMLHttpRequest();
-          const params = JSON.stringify({
+          const params = {
             author: 'default-vuejs2',
             content: newValue,
-          });
-
-          xhr.open('POST', this.apiURL);
-          xhr.setRequestHeader('Content-type', 'application/json');
-
-          xhr.onreadystatechange = () => {
-            this.getAllMessages();
-            this.newMessage = '';
           };
 
-          xhr.send(params);
+          this.$http.post(this.apiURL, params).then(() => {
+            this.getAllMessages();
+            this.newMessage = '';
+          });
         }
       },
     },
