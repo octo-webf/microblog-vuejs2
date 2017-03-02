@@ -1,4 +1,6 @@
 <div class="messages">
+
+  <h2> {{ $t('message.welcome') }} {{ pseudo }}</h2>
   <div class="message-input">
     <input v-model="newMessage" type="text" :placeholder='$t("message.whatsNew")' autofocus="" class="message-input__content" @keyup.enter="postNewMessages">
   </div>

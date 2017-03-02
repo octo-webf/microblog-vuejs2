@@ -9,6 +9,12 @@ export default {
     localStorage.removeItem('user');
   },
 
+  pseudo() {
+    const local = JSON.parse(localStorage.getItem('user'));
+
+    return local.name;
+  },
+
   ready() {
     if (localStorage.user) {
       return true;

@@ -1,12 +1,15 @@
 <template src="./template.html"></template>
 
 <script>
+  import Auth from '../../services/Auth';
+
   export default {
     name: 'message',
 
     data() {
       return {
         messages: null,
+        pseudo: Auth.pseudo(),
         newMessage: '',
         apiURL: 'http://microblog-api.herokuapp.com/api/messages',
       };
@@ -27,7 +30,7 @@
 
         if (newValue) {
           const params = {
-            author: 'default-vuejs2',
+            author: this.pseudo,
             content: newValue,
           };
 
@@ -43,11 +46,13 @@
       fr: {
         message: {
           whatsNew: 'Quoi de neuf ?',
+          welcome: 'Bienvenue ',
         },
       },
       en: {
         message: {
           whatsNew: 'What\'s new ?',
+          welcome: 'Welcome ',
         },
       },
     },
