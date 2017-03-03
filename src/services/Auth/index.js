@@ -2,7 +2,7 @@ export default {
   name: 'auth',
 
   login(name) {
-    localStorage.setItem('user', JSON.stringify({ name }));
+    localStorage.setItem('user', JSON.stringify({name}));
   },
 
   logout() {
@@ -10,6 +10,10 @@ export default {
   },
 
   pseudo() {
+    if (!this.ready()) {
+      return '';
+    }
+
     const local = JSON.parse(localStorage.getItem('user'));
 
     return local.name;
