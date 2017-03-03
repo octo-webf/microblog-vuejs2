@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Messages from 'src/components/Messages';
+import Messages from 'components/Messages';
 
 describe('Messages components', () => {
   const Constructor = Vue.extend(Messages);

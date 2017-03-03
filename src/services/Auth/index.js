@@ -2,7 +2,7 @@ export default {
   name: 'auth',
 
   login(name) {
-    localStorage.setItem('user', JSON.stringify({name}));
+    localStorage.setItem('user', JSON.stringify({ name }));
   },
 
   logout() {

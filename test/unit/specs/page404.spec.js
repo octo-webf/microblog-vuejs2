@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import page404 from 'src/components/page404';
+import page404 from 'components/page404';
 
 describe('page404 components', () => {
   const Constructor = Vue.extend(page404);

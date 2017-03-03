@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import About from 'src/components/About';
+import About from 'components/About';
 
 describe('About components', () => {
   const Constructor = Vue.extend(About);
