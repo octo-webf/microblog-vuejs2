@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import About from 'components/About';
 import Messages from 'components/Messages';
@@ -8,11 +8,11 @@ import Login from 'components/Login';
 
 import Auth from 'services/Auth';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 // TODO ajouter des tests sur l'existance des routes
 
-const router = new Router({
+const router = new VueRouter({
   routes: [
     {
       path: '/',
