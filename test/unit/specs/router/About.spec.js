@@ -4,18 +4,18 @@ import About from 'components/About';
 
 describe('router', () => {
   it('About', () => {
-    const route_path = routes.match('/about');
+    const routePath = routes.match('/about');
 
-    expect(route_path.name)
+    expect(routePath.name)
       .to.equal('About');
 
-    expect(route_path.path)
+    expect(routePath.path)
       .to.equal('/about');
 
-    expect(route_path.meta.auth)
+    expect(routePath.meta.auth)
       .to.equal(true);
 
-    expect(route_path.matched[0].components.default)
+    expect(routePath.matched[0].components.default)
       .to.equal(About);
   });
 });

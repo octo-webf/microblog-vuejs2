@@ -4,18 +4,18 @@ import Messages from 'components/Messages';
 
 describe('router', () => {
   it('Messages', () => {
-    const route_path = routes.match('/');
+    const routePath = routes.match('/');
 
-    expect(route_path.name)
+    expect(routePath.name)
       .to.equal('Messages');
 
-    expect(route_path.path)
+    expect(routePath.path)
       .to.equal('/');
 
-    expect(route_path.meta.auth)
+    expect(routePath.meta.auth)
       .to.equal(true);
 
-    expect(route_path.matched[0].components.default)
+    expect(routePath.matched[0].components.default)
       .to.equal(Messages);
   });
 });
