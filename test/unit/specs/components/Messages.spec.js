@@ -3,6 +3,12 @@ import Messages from 'components/Messages';
 
 describe('components', () => {
   describe('Messages', () => {
+    sinon.stub(Messages, 'data').returns({
+      newMessage: "I'm the new message",
+      pseudo: 'Plopauthor',
+      apiURL: 'http://microblog-api.herokuapp.com/api/messages',
+    });
+
     const Constructor = Vue.extend(Messages);
     const vm = new Constructor().$mount();
 
@@ -17,11 +23,32 @@ describe('components', () => {
 
         promiseCall.resolves();
 
-        new Constructor().$mount();
+        vm.getAllMessages();
 
         expect(promiseCall).to.have.been.called;
         expect(promiseCall).to.have.been.calledWith({
           method: 'get',
+          url: 'http://microblog-api.herokuapp.com/api/messages',
+        });
+
+        Vue.http.restore();
+      });
+    });
+
+    describe('postNewMessages()', () => {
+      it('plop call post', () => {
+        const promiseCall = sinon.stub(Vue, 'http').returnsPromise();
+        promiseCall.resolves();
+
+        vm.postNewMessages();
+
+        expect(promiseCall).to.have.been.called;
+        expect(promiseCall).to.have.been.calledWith({
+          method: 'post',
+          body: {
+            author: 'Plopauthor',
+            content: "I'm the new message",
+          },
           url: 'http://microblog-api.herokuapp.com/api/messages',
         });
 
