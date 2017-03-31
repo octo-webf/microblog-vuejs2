@@ -11,6 +11,24 @@ describe('components', () => {
         .to.equal('What\'s new ?');
     });
 
+    describe('getAllMessages()', () => {
+      it('call api to get all created message', () => {
+        const promiseCall = sinon.stub(Vue, 'http').returnsPromise();
+
+        promiseCall.resolves();
+
+        new Constructor().$mount();
+
+        expect(promiseCall).to.have.been.called;
+        expect(promiseCall).to.have.been.calledWith({
+          method: 'get',
+          url: 'http://microblog-api.herokuapp.com/api/messages',
+        });
+
+        Vue.http.restore();
+      });
+    });
+
     describe('locales', () => {
       const langages = Object.keys(Messages.locales);
 
